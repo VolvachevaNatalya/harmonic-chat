@@ -1,0 +1,16 @@
+<nb-chat title="Chat" size="large" *ngIf="browserUser && chatUser">
+
+  <nb-chat-message *ngFor="let msg of messages | async"
+                   [type]="msg.type"
+                   [message]="msg.text"
+                   [reply]="msg.reply"
+                   [sender]="msg.user.name"
+                   [date]="msg.date"
+                   [avatar]="msg.user.avatar">
+  </nb-chat-message>
+
+  <nb-chat-form *ngIf="chatUser.online" (send)="sendMessage($event)">
+
+  </nb-chat-form>
+
+</nb-chat>

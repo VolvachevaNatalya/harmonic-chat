@@ -1,0 +1,14 @@
+<nb-card [size]="'medium'">
+  <nb-card-header>users list</nb-card-header>
+  <nb-card-body>
+    <nb-list>
+      <nb-list-item *ngFor="let chatUser of this.chatUsers | async">
+        <nb-user
+          [name]="chatUser.name"
+          [title]="chatUser.online? 'Online' : 'Offline'"
+          (click)="onUserClick(chatUser)">
+        </nb-user>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+</nb-card>
